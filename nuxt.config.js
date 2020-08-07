@@ -58,14 +58,14 @@ export default {
   credentials: true // 表示跨域请求时是否需要使用凭证
 },
 proxy: {
-    "/x5/proxy-api": {
-      target: process.env.remote_address, // 代理地址
+    "/api/proxy": {
+      target: process.env.remote_address || 'http://127.0.0.1:8080/api', // 代理地址
       changeOrigin: true,
       pathRewrite: {
-        "^/x5/proxy-api": "" //将 /api 替换掉
+        "^/api/proxy": "" //将 /api 替换掉
       }
     }
-  } 
+  },
   /*
   ** Build configuration
   */
