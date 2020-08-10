@@ -1,4 +1,6 @@
 
+const path = require("path");
+const vuxLoader = require("@vux/loader");
 export default {
   mode: 'spa',
   /*
@@ -29,7 +31,11 @@ export default {
   */
   plugins: [
     {
-      src: "~/plugins/mint",
+      src: "~/plugins/vux-component",
+      ssr: true
+    },
+    {
+      src: "~/plugins/vux-plugins",
       ssr: false
     }
   ],
@@ -38,7 +44,7 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module',
+    // '@nuxtjs/eslint-module',
   ],
   /*
   ** Nuxt.js modules
@@ -74,6 +80,29 @@ proxy: {
     ** You can extend webpack config here
     */
     extend (config, ctx) {
+      Object.assign(config.resolve.alias, {
+        "@vuxc": path.resolve(__dirname, "./node_modules/vux/src/components"),
+        "@vuxp": path.resolve(__dirname, "./node_modules/vux/src/plugins"),
+        "@vuxd": path.resolve(__dirname, "./node_modules/vux/src/directives"),
+        "@vuxm": path.resolve(__dirname, "./node_modules/vux/src/mixins"),
+        "@vuxf": path.resolve(__dirname, "./node_modules/vux/src/filters"),
+        "@vuxt": path.resolve(__dirname, "./node_modules/vux/src/tools"),
+        "@vuxdata": path.resolve(__dirname, "./node_modules/vux/src/datas")
+      });
+
+      const configs = vuxLoader.merge(config, {
+        options: {
+          ssr: true
+        },
+        plugins: [
+          "vux-ui",
+          {
+            name: "less-theme",
+            path: path.join(__dirname, "./styles/theme.less")
+          }
+        ]
+      });
+      return configs;
     }
   }
 }

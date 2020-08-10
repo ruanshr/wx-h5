@@ -1,44 +1,21 @@
 <template>
-  <div class="page-button">
-    <h1 class="page-title">Button</h1>
-    <div class="page-button-group">
-      <mt-button size="large">default</mt-button>
-      <mt-button size="large" type="primary">primary</mt-button>
-      <mt-button size="large" type="danger">danger</mt-button>
-    </div>
-
-    <div class="page-button-group">
-      <mt-button>default</mt-button>
-      <mt-button type="primary">primary</mt-button>
-      <mt-button type="danger">danger</mt-button>
-    </div>
-
-    <div class="page-button-group">
-      <mt-button size="small">default</mt-button>
-      <mt-button size="small" type="primary">primary</mt-button>
-      <mt-button size="small" type="danger">danger</mt-button>
-    </div>
-
-    <div class="page-button-group">
-      <mt-button disabled size="large">default</mt-button>
-      <mt-button disabled size="large" type="primary">primary</mt-button>
-      <mt-button disabled size="large" type="danger">danger</mt-button>
-    </div>
-
-    <div class="page-button-group">
-      <mt-button plain size="large">default</mt-button>
-      <mt-button plain size="large" type="primary">primary</mt-button>
-      <mt-button plain size="large" type="danger">danger</mt-button>
-    </div> 
+  <div class="">
+     33333333
   </div>
 </template>
 
-<script>
-import Logo from '~/components/Logo.vue'
+<script> 
 
 export default {
-  components: {
-    Logo
+  asyncData({ route }) {
+    return {
+      route
+    }
+  },
+  data() {
+    return {
+      isDemo: true
+    }
   }
 }
 </script>

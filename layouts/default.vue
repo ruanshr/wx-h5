@@ -1,9 +1,35 @@
 <template>
-  <div>
+  <div class="container">
     <nuxt />
+    <tabbar class="vux-demo-tabbar" icon-class="vux-center" slot="bottom">
+      <tabbar-item :link="{ path:'/' }" :selected="route.path === '/'">
+        <span slot="label">Home</span>
+        <template #label>
+          <span>首页</span>
+        </template>
+      </tabbar-item>
+      <tabbar-item :link="{ path:'/total' }" badge="9">
+        <template #label>
+          <span>全部</span>
+        </template>
+      </tabbar-item>
+      <tabbar-item :link="{ path:'/account' }" badge="9">
+        <template #label>
+          <span>我的</span>
+        </template>
+      </tabbar-item>
+    </tabbar>
   </div>
 </template>
-
+<script>
+export default {
+  data() {
+    return {
+      route: { path: '/'}
+    }
+  }
+}
+</script>
 <style>
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',

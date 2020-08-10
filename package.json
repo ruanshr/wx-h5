@@ -13,14 +13,19 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
-    "mint-ui": "^2.2.13",
+    "vux": "^2.9.4",
+    "vuedraggable": "^2.23.2",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^2.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
+    "@vux/loader": "^2.0.0-rc4",
     "babel-eslint": "^10.0.1",
     "eslint": "^6.1.0",
-    "eslint-plugin-nuxt": ">=0.4.2"
+    "eslint-plugin-nuxt": ">=0.4.2",
+    "less": "^3.12.2",
+    "less-loader": "^5.0.0",
+    "node-sass": "^4.14.1"
   }
 }
